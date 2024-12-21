@@ -1,10 +1,10 @@
-package com.portifolio.vlr.core;
+package portifolio.vlr_core;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CoreApplicationTests {
+class VlrCoreApplicationTests {
 
 	@Test
 	void contextLoads() {
