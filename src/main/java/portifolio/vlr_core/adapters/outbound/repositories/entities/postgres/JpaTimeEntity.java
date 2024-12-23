@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import portifolio.vlr_core.domain.time.Time;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,6 +22,10 @@ public class JpaTimeEntity {
     private long id;
 
     private String nome;
-    
+
+    public JpaTimeEntity(Time time) {
+        this.id = time.getId();
+        this.nome = time.getNome();
+    }
 }
 

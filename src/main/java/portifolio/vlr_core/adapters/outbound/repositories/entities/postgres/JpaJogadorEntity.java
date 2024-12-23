@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import portifolio.vlr_core.domain.jogador.Jogador;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,5 +25,11 @@ public class JpaJogadorEntity {
     private String nome;
     
     private JpaTimeEntity time;
+    
+    public JpaJogadorEntity(Jogador jogador) {
+        this.id = jogador.getId();
+        this.nome = jogador.getNome();
+        this.time = jogador.getTime() != null ? new JpaTimeEntity(jogador.getTime()) : null;
+    }
     
 }
