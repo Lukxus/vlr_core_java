@@ -1,6 +1,6 @@
 package portifolio.vlr_core.domain.roundspartida;
 
-import portifolio.vlr_core.adapters.outbound.repositories.entities.postgres.RoundsEnum;
+import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.RoundsEnum;
 import portifolio.vlr_core.domain.partida.Partida;
 
 import java.util.ArrayList;

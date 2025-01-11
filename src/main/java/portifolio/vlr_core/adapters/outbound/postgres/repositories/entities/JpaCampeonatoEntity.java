@@ -1,4 +1,4 @@
-package portifolio.vlr_core.adapters.outbound.repositories.entities.postgres;
+package portifolio.vlr_core.adapters.outbound.postgres.repositories.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

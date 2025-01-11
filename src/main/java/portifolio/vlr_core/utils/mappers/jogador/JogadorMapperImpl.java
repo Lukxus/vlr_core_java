@@ -1,7 +1,7 @@
 package portifolio.vlr_core.utils.mappers.jogador;
 
 import org.springframework.stereotype.Component;
-import portifolio.vlr_core.adapters.outbound.repositories.entities.postgres.JpaJogadorEntity;
+import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.JpaJogadorEntity;
 import portifolio.vlr_core.domain.jogador.Jogador;
 import portifolio.vlr_core.utils.mappers.time.TimeMapper;
 
@@ -16,15 +16,33 @@ public class JogadorMapperImpl implements JogadorMapper {
 
     @Override
     public Jogador jpaToDomain(JpaJogadorEntity jpaJogadorEntity) {
-        if (jpaJogadorEntity == null || jpaJogadorEntity.getTime() == null) {
-            throw new IllegalArgumentException("Jogador ou Time não podem ser nulos");
+        if (jpaJogadorEntity == null) {
+            throw new IllegalArgumentException("JpaJogadorEntity não pode ser nulo");
         }
 
-        Jogador jogador = new Jogador();
-        jogador.setId(jpaJogadorEntity.getId());
-        jogador.setNome(jpaJogadorEntity.getNome());
-        jogador.setTime(timeMapper.jpaToDomain(jpaJogadorEntity.getTime()));
+        return new Jogador(
+                jpaJogadorEntity.getId(),
+                jpaJogadorEntity.getNome(),
+                jpaJogadorEntity.getTime() != null ? timeMapper.jpaToDomain(jpaJogadorEntity.getTime()) : null
+        );
+    }
 
-        return jogador;
+    @Override
+    public JpaJogadorEntity domainToJpa(Jogador jogador) {
+        if (jogador == null) {
+            throw new IllegalArgumentException("Jogador não pode ser nulo");
+        }
+
+        JpaJogadorEntity jpaJogadorEntity = new JpaJogadorEntity();
+        jpaJogadorEntity.setId(jogador.getId());
+        jpaJogadorEntity.setNome(jogador.getNome());
+
+        if (jogador.getTime() != null) {
+            jpaJogadorEntity.setTime(timeMapper.domainToJpa(jogador.getTime()));
+        } else {
+            jpaJogadorEntity.setTime(null);
+        }
+
+        return jpaJogadorEntity;
     }
 }

@@ -1,6 +1,6 @@
 package portifolio.vlr_core.domain.sequenciapartida;
 
-import portifolio.vlr_core.adapters.outbound.repositories.entities.postgres.TipoPartida;
+import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.TipoPartida;
 import portifolio.vlr_core.domain.campeonato.Campeonato;
 
 import java.time.LocalDateTime;

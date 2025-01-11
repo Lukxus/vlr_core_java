@@ -1,4 +1,4 @@
-package portifolio.vlr_core.adapters.outbound.repositories.entities.postgres;
+package portifolio.vlr_core.adapters.outbound.postgres.repositories.entities;
 
 public enum RoundsEnum {
     EQUIPE1DESARMA(1, "Equipe 1 Desarma"),
