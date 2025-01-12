@@ -1,7 +1,7 @@
 package portifolio.vlr_core.utils.mappers.time;
 
 import org.springframework.stereotype.Component;
-import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.JpaTimeEntity;
+import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaTimeEntity;
 import portifolio.vlr_core.domain.time.Time;
 
 @Component

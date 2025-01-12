@@ -1,8 +1,8 @@
 package portifolio.vlr_core.utils.mappers.jogador;
 
 import org.junit.jupiter.api.Test;
-import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.JpaJogadorEntity;
-import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.JpaTimeEntity;
+import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaJogadorEntity;
+import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaTimeEntity;
 import portifolio.vlr_core.domain.jogador.Jogador;
 import portifolio.vlr_core.utils.mappers.time.TimeMapper;
 import portifolio.vlr_core.utils.mappers.time.TimeMapperImpl;

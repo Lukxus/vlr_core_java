@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import portifolio.vlr_core.adapters.inbound.dtos.JogadorFilter;
 import portifolio.vlr_core.adapters.inbound.dtos.JogadorFilterSpecification;
-import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.JpaJogadorEntity;
+import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaJogadorEntity;
 import portifolio.vlr_core.domain.jogador.Jogador;
 import portifolio.vlr_core.domain.jogador.JogadorRepositoryPort;
 import portifolio.vlr_core.domain.utils.pagination.DomainPageRequest;

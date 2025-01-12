@@ -6,7 +6,7 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
-import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.JpaJogadorEntity;
+import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaJogadorEntity;
 
 import java.util.ArrayList;
 import java.util.List;

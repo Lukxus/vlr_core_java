@@ -1,4 +1,4 @@
-package portifolio.vlr_core.adapters.outbound.postgres.repositories.entities;
+package portifolio.vlr_core.adapters.outbound.postgres.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,21 +9,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "SequenciaPartida")
-public class JpaPartidaEntity {
+@Table(name = "RoundsPartida")
+public class JpaRoundsPartidaEntity {
 
     @Id
     @GeneratedValue
     private long id;
 
-    private JpaSequenciaPartidaEntity sequenciaPartida;
+    private JpaPartidaEntity partida;
 
-    private String mapa;
-
-    private JpaTimeEntity timeVencedor;
+    private ArrayList<RoundsEnum> roundsResult;
+    
 }

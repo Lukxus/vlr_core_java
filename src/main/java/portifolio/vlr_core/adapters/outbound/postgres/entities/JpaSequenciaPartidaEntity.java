@@ -1,4 +1,4 @@
-package portifolio.vlr_core.adapters.outbound.postgres.repositories.entities;
+package portifolio.vlr_core.adapters.outbound.postgres.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,24 +8,29 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import portifolio.vlr_core.domain.time.Time;
+
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name = "Jogador")
-public class JpaTimeEntity {
+@Table(name = "SequenciaPartida")
+public class JpaSequenciaPartidaEntity {
+
     @Id
     @GeneratedValue
     private long id;
 
-    private String nome;
+    private String url;
 
-    public JpaTimeEntity(Time time) {
-        this.id = time.getId();
-        this.nome = time.getNome();
-    }
+    private JpaCampeonatoEntity campeonato;
+
+    private LocalDateTime data;
+
+    private String patch;
+
+    private TipoPartida tipoPartida;
+
 }
-

@@ -1,7 +1,7 @@
 package portifolio.vlr_core.utils.mappers.jogador;
 
 import org.springframework.stereotype.Component;
-import portifolio.vlr_core.adapters.outbound.postgres.repositories.entities.JpaJogadorEntity;
+import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaJogadorEntity;
 import portifolio.vlr_core.domain.jogador.Jogador;
 import portifolio.vlr_core.utils.mappers.time.TimeMapper;
 

@@ -1,4 +1,4 @@
-package portifolio.vlr_core.adapters.outbound.postgres.repositories.entities;
+package portifolio.vlr_core.adapters.outbound.postgres.entities;
 
 public enum TipoPartida {
     BO1(1, "Best of 1"),
