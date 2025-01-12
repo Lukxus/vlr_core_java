@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class VlrCoreApplication {
 
 	public static void main(String[] args) {
-		System.out.println("teste");
 		SpringApplication.run(VlrCoreApplication.class, args);
 	}
 
