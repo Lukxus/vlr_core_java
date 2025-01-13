@@ -3,6 +3,7 @@ package portifolio.vlr_core.adapters.outbound.postgres.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class JpaJogadorEntity {
 
     private String nome;
     
+    @ManyToOne
     private JpaTimeEntity time;
     
     public JpaJogadorEntity(Jogador jogador) {

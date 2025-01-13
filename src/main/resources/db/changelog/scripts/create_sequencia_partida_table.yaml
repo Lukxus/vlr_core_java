@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_sequencia_partida_table
+      author: seu_nome
+      changes:
+        - createTable:
+            tableName: SequenciaPartida
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: url
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: campeonato_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: patch
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: tipo_partida
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: SequenciaPartida
+            baseColumnNames: campeonato_id
+            constraintName: fk_sequencia_partida_campeonato
+            referencedTableName: Campeonato
+            referencedColumnNames: id
+            onDelete: SET NULL

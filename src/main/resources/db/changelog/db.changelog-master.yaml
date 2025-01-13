@@ -1,3 +1,15 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changeset-001-create-time-table.yaml
+      file: db/changelog/scripts/create_time_table.yaml
+  - include:
+      file: db/changelog/scripts/create_jogador_table.yaml
+  - include:
+      file: db/changelog/scripts/create_campeonato_table.yaml
+  - include:
+      file: db/changelog/scripts/create_sequencia_partida_table.yaml
+  - include:
+      file: db/changelog/scripts/create_partida_table.yaml
+  - include:
+      file: db/changelog/scripts/create_partida_jogador_table.yaml
+  - include:
+      file: db/changelog/scripts/create_rounds_partida_table.yaml

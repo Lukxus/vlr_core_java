@@ -3,6 +3,7 @@ package portifolio.vlr_core.adapters.outbound.postgres.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,8 +21,13 @@ public class JpaPartidaJogadorEntity {
     @Id
     @GeneratedValue
     private long id;
+    
+    @OneToOne
     private JpaPartidaEntity partida;
+    
+    @OneToOne
     private JpaJogadorEntity jogador;
+    
     private String agenteJogador;
     private Double rDefesa;
     private Double rAtaque;

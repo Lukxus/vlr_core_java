@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_partida_jogador_table
+      author: seu_nome
+      changes:
+        - createTable:
+            tableName: PartidaJogador
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: partida_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: jogador_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: agente_jogador
+                  type: varchar(255)
+              - column:
+                  name: r_defesa
+                  type: double
+              - column:
+                  name: r_ataque
+                  type: double
+              - column:
+                  name: r_geral
+                  type: double
+              - column:
+                  name: acs_defesa
+                  type: int
+              - column:
+                  name: acs_ataque
+                  type: int
+              - column:
+                  name: acs_geral
+                  type: int
+              # Continue defining columns for other attributes similarly
+        - addForeignKeyConstraint:
+            baseTableName: PartidaJogador
+            baseColumnNames: partida_id
+            constraintName: fk_partida_jogador_partida
+            referencedTableName: Partida
+            referencedColumnNames: id
+            onDelete: CASCADE
+        - addForeignKeyConstraint:
+            baseTableName: PartidaJogador
+            baseColumnNames: jogador_id
+            constraintName: fk_partida_jogador_jogador
+            referencedTableName: Jogador
+            referencedColumnNames: id
+            onDelete: CASCADE

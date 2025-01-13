@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_jogador_table
+      author: Luiz Saraiva
+      changes:
+        - createTable:
+            tableName: Jogador
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nome
+                  type: varchar(255)
+              - column:
+                  name: time_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: Jogador
+            baseColumnNames: time_id
+            constraintName: fk_jogador_time
+            referencedTableName: Time
+            referencedColumnNames: id
+            onDelete: SET NULL

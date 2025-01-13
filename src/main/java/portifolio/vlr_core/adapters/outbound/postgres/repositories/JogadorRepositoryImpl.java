@@ -62,9 +62,7 @@ public class JogadorRepositoryImpl implements JogadorRepositoryPort {
     public PageVO<Jogador> findAll(JogadorFilter jogadorFilter, DomainPageRequest pageRequest) {
         Pageable pageable = paginationMapper.pageRequestToPageable(pageRequest);
         JogadorFilterSpecification specification = new JogadorFilterSpecification(jogadorFilter);
-
-        jpaJogadorRepository.findAll(specification, pageable);
-
+        
         Page<JpaJogadorEntity> springPage = jpaJogadorRepository.findAll(specification, pageable);
 
         List<Jogador> jogadores = springPage.getContent()

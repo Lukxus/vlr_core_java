@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_partida_table
+      author: seu_nome
+      changes:
+        - createTable:
+            tableName: Partida
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: mapa
+                  type: varchar(255)
+              - column:
+                  name: sequencia_partida_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+              - column:
+                  name: time_vencedor_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: Partida
+            baseColumnNames: sequencia_partida_id
+            constraintName: fk_partida_sequencia_partida
+            referencedTableName: SequenciaPartida
+            referencedColumnNames: id
+            onDelete: SET NULL
+        - addForeignKeyConstraint:
+            baseTableName: Partida
+            baseColumnNames: time_vencedor_id
+            constraintName: fk_partida_time_vencedor
+            referencedTableName: Time
+            referencedColumnNames: id
+            onDelete: SET NULL

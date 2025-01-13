@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_time_table
+      author: Luiz Saraiva
+      changes:
+        - createTable:
+            tableName: Time
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: nome
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
