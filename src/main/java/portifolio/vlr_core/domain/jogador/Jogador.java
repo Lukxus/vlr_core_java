@@ -1,26 +1,34 @@
 package portifolio.vlr_core.domain.jogador;
 
 import portifolio.vlr_core.domain.time.Time;
+
+import java.util.UUID;
+
 public class Jogador {
 
-    private long id;
+    private UUID id;
     private String nome;
-    private Time time;
+    private UUID time;
 
-    public Jogador() {
+    public Jogador() {}
+
+    public Jogador(String nome, UUID time) {
+        this.id = UUID.randomUUID();
+        this.nome = nome;
+        this.time = time;
     }
 
-    public Jogador(long id, String nome, Time time) {
+    public Jogador(UUID id, String nome, UUID time) {
         this.id = id;
         this.nome = nome;
         this.time = time;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -32,11 +40,11 @@ public class Jogador {
         this.nome = nome;
     }
 
-    public Time getTime() {
+    public UUID getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(UUID time) {
         this.time = time;
     }
 }

@@ -1,24 +1,19 @@
 package portifolio.vlr_core.domain.jogador;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import portifolio.vlr_core.adapters.inbound.dtos.JogadorFilter;
-import portifolio.vlr_core.domain.utils.pagination.DomainPageRequest;
-import portifolio.vlr_core.domain.utils.pagination.PageVO;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-//port
 public interface JogadorRepositoryPort {
 
     Jogador save(Jogador jogador);
 
-    Optional<Jogador> findById(long id);
+    Optional<Jogador> findById(UUID id);
 
-    List<Jogador> findAll();
+    Page<Jogador> findAll(JogadorFilter jogadorFilter, Pageable pageable);
 
-    PageVO<Jogador> findAll(JogadorFilter jogadorFilter, DomainPageRequest pageRequest);
-    
-    void deleteById(long id);
-
+    void deleteById(UUID id);
 }

@@ -4,22 +4,25 @@ import org.junit.jupiter.api.Test;
 import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaTimeEntity;
 import portifolio.vlr_core.domain.time.Time;
 
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TimeMapperImplTest {
 
-    private final TimeMapper timeMapper = new TimeMapperImpl();
+    private final TimeMapper timeMapper = new TimeMapper();
 
     @Test
     void testJpaToDomainValid() {
+        UUID uuid = UUID.randomUUID();
         JpaTimeEntity jpaTimeEntity = new JpaTimeEntity();
-        jpaTimeEntity.setId(1L);
+        jpaTimeEntity.setId(uuid);
         jpaTimeEntity.setNome("Time A");
 
         Time time = timeMapper.jpaToDomain(jpaTimeEntity);
 
         assertNotNull(time);
-        assertEquals(1L, time.getId());
+        assertEquals(uuid, time.getId());
         assertEquals("Time A", time.getNome());
     }
 

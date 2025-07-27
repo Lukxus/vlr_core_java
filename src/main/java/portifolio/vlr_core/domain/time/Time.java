@@ -1,10 +1,12 @@
 package portifolio.vlr_core.domain.time;
 
+import java.util.UUID;
+
 public class Time {
-    private long id;
+    private UUID id;
     private String nome;
 
-    public Time(String nome, long id) {
+    public Time(String nome, UUID id) {
         this.nome = nome;
         this.id = id;
     }
@@ -20,11 +22,11 @@ public class Time {
         this.nome = nome;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

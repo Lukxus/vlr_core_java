@@ -1,19 +1,20 @@
 package portifolio.vlr_core.application.usecases;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import portifolio.vlr_core.adapters.inbound.dtos.JogadorDTO;
 import portifolio.vlr_core.adapters.inbound.dtos.JogadorFilter;
+import portifolio.vlr_core.adapters.inbound.dtos.JogadorRequestDTO;
 import portifolio.vlr_core.domain.jogador.Jogador;
-import portifolio.vlr_core.domain.jogador.JogadorRequestDTO;
-import portifolio.vlr_core.domain.utils.pagination.DomainPageRequest;
-import portifolio.vlr_core.domain.utils.pagination.PageVO;
 
-//port
+import java.util.UUID;
+
 public interface JogadorUseCases {
+    JogadorDTO createJogador(JogadorRequestDTO jogadorRequestDTO);
 
-    public Jogador createJogador(JogadorRequestDTO jogadorRequestDTO);
+    Page<Jogador> getAllJogadores(JogadorFilter jogadorFilter, Pageable pageable);
 
-    public PageVO<Jogador> getAllJogadores(JogadorFilter jogadorFilter, DomainPageRequest pageRequest);
+    JogadorDTO getJogadorById(UUID id);
 
-    public Jogador getJogadorById(long id);
-
-    public void removeJogadorById(long id);
+    void removeJogadorById(UUID id);
 }

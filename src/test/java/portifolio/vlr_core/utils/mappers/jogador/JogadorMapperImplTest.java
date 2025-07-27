@@ -5,39 +5,43 @@ import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaJogadorEntity;
 import portifolio.vlr_core.adapters.outbound.postgres.entities.JpaTimeEntity;
 import portifolio.vlr_core.domain.jogador.Jogador;
 import portifolio.vlr_core.utils.mappers.time.TimeMapper;
-import portifolio.vlr_core.utils.mappers.time.TimeMapperImpl;
+
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class JogadorMapperImplTest {
 
-    private final TimeMapper timeMapper = new TimeMapperImpl();
-    private final JogadorMapper jogadorMapper = new JogadorMapperImpl(timeMapper);
+    private final TimeMapper timeMapper = new TimeMapper();
+    private final JogadorMapper jogadorMapper = new JogadorMapper(timeMapper);
 
     @Test
     void testJpaToDomainValid() {
+        UUID uuidTime = UUID.randomUUID();
         JpaTimeEntity jpaTimeEntity = new JpaTimeEntity();
-        jpaTimeEntity.setId(1L);
+        jpaTimeEntity.setId(uuidTime);
         jpaTimeEntity.setNome("Time A");
 
+        UUID uuidJogador = UUID.randomUUID();
         JpaJogadorEntity jpaJogadorEntity = new JpaJogadorEntity();
-        jpaJogadorEntity.setId(10L);
+        jpaJogadorEntity.setId(uuidJogador);
         jpaJogadorEntity.setNome("Jogador A");
         jpaJogadorEntity.setTime(jpaTimeEntity);
 
         Jogador jogador = jogadorMapper.jpaToDomain(jpaJogadorEntity);
 
         assertNotNull(jogador);
-        assertEquals(10L, jogador.getId());
+        assertEquals(uuidJogador, jogador.getId());
         assertEquals("Jogador A", jogador.getNome());
         assertNotNull(jogador.getTime());
-        assertEquals(1L, jogador.getTime().getId());
+        assertEquals(uuidTime, jogador.getTime());
     }
 
     @Test
     void testJpaToDomainWithNullTimeThrowsException() {
+        UUID uuidJogador = UUID.randomUUID();
         JpaJogadorEntity jpaJogadorEntity = new JpaJogadorEntity();
-        jpaJogadorEntity.setId(10L);
+        jpaJogadorEntity.setId(uuidJogador);
         jpaJogadorEntity.setNome("Jogador A");
         jpaJogadorEntity.setTime(null);
 
